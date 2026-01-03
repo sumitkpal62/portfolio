@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Sumit Kumar | Portfolio",
-    description: "Creative developer portfolio built with Next.js",
+    description: "Personal portfolio built with Next.js and Tailwind CSS",
 };
 
 export default function RootLayout({
@@ -13,7 +13,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-        <body className="bg-gray-950 text-gray-100 antialiased overflow-x-hidden">
+        <body className="bg-gray-950 text-gray-100 antialiased">
         {children}
         </body>
         </html>

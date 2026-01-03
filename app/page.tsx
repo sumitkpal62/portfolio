@@ -1,33 +1,33 @@
-"use client";
-
-import { motion } from "framer-motion";
-import HoverGrid from "@/components/HoverGrid";
-
 export default function HomePage() {
     return (
-        <main className="relative h-screen overflow-hidden bg-gray-950">
-            {/* Animated background */}
-            <HoverGrid />
+        <main className="min-h-screen flex flex-col items-center justify-center px-6 text-center">
+            {/* Hero Section */}
+            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
+                Hi, I&apos;m{" "}
+                <span className="text-purple-500">Sumit Kumar</span>
+            </h1>
 
-            {/* Foreground content */}
-            <section className="relative z-10 h-screen flex items-center justify-center px-6">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="text-center max-w-2xl"
+            <p className="mt-4 max-w-xl text-gray-400 text-lg">
+                A passionate developer building modern web applications using
+                Next.js, TypeScript, and Tailwind CSS.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="mt-8 flex gap-4">
+                <a
+                    href="/projects"
+                    className="rounded-lg bg-purple-600 px-6 py-3 font-medium text-white hover:bg-purple-700 transition"
                 >
-                    <h1 className="text-5xl font-extrabold text-white">
-                        Hi, I&apos;m{" "}
-                        <span className="text-purple-500">Sumit Kumar</span>
-                    </h1>
+                    View Projects
+                </a>
 
-                    <p className="mt-6 text-lg text-gray-400">
-                        Frontend Developer building interactive, animated,
-                        and modern web experiences with Next.js.
-                    </p>
-                </motion.div>
-            </section>
+                <a
+                    href="/about"
+                    className="rounded-lg border border-gray-700 px-6 py-3 font-medium text-gray-300 hover:bg-gray-800 transition"
+                >
+                    About Me
+                </a>
+            </div>
         </main>
     );
 }
