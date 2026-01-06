@@ -1,33 +1,38 @@
+"use client";
+
+import { motion } from "framer-motion";
+import CursorGlow from "@/components/CursorGlow";
+import HoverGrid from "@/components/HoverGrid";
+import Navbar from "@/components/Navbar";
+
+
 export default function HomePage() {
     return (
-        <main className="min-h-screen flex flex-col items-center justify-center px-6 text-center">
-            {/* Hero Section */}
-            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight">
-                Hi, I&apos;m{" "}
-                <span className="text-purple-500">Sumit Kumar</span>
-            </h1>
+        <main className="relative min-h-screen overflow-hidden">
+            <Navbar/>
+            {/* Cursor-follow background */}
+            <HoverGrid />
 
-            <p className="mt-4 max-w-xl text-gray-400 text-lg">
-                A passionate developer building modern web applications using
-                Next.js, TypeScript, and Tailwind CSS.
-            </p>
 
-            {/* CTA Buttons */}
-            <div className="mt-8 flex gap-4">
-                <a
-                    href="/projects"
-                    className="rounded-lg bg-purple-600 px-6 py-3 font-medium text-white hover:bg-purple-700 transition"
+            {/* CONTENT */}
+            <section className="relative z-10 min-h-screen flex items-center justify-center px-6">
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center max-w-3xl"
                 >
-                    View Projects
-                </a>
+                    <h1 className="text-5xl font-extrabold">
+                        Hi, I&apos;m{" "}
+                        <span className="text-purple-500">Sumit Kumar</span>
+                    </h1>
 
-                <a
-                    href="/about"
-                    className="rounded-lg border border-gray-700 px-6 py-3 font-medium text-gray-300 hover:bg-gray-800 transition"
-                >
-                    About Me
-                </a>
-            </div>
+                    <p className="mt-6 text-lg text-gray-400">
+                        I build modern web experiences with motion, performance,
+                        and clean architecture.
+                    </p>
+                </motion.div>
+            </section>
         </main>
     );
 }

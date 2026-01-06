@@ -1,10 +1,7 @@
 import "./globals.css";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-    title: "Sumit Kumar | Portfolio",
-    description: "Personal portfolio built with Next.js and Tailwind CSS",
-};
+import Navbar from "@/components/Navbar";
+import SphereCursor from "@/components/SphereCursor";
+import HomeButton from "@/components/HomeButton";
 
 export default function RootLayout({
                                        children,
@@ -13,7 +10,12 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-        <body className="bg-gray-950 text-gray-100 antialiased">
+        <body className="bg-gray-950 text-gray-100">
+        {/* Global UI */}
+        <Navbar />
+        <SphereCursor />
+
+        {/* Page content */}
         {children}
         </body>
         </html>
