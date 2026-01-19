@@ -1,7 +1,8 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import SphereCursor from "@/components/SphereCursor";
-import HomeButton from "@/components/HomeButton";
+import ThemeToggle from "@/components/ThemeToggle";
+
 
 export default function RootLayout({
                                        children,
@@ -13,7 +14,10 @@ export default function RootLayout({
         <body className="bg-gray-950 text-gray-100">
         {/* Global UI */}
         <Navbar />
+
+        <ThemeToggle />
         <SphereCursor />
+
 
         {/* Page content */}
         {children}

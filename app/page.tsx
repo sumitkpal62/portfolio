@@ -1,16 +1,35 @@
 "use client";
 
-import { motion } from "framer-motion";
-import CursorGlow from "@/components/CursorGlow";
+import { motion, AnimatePresence } from "framer-motion";
 import HoverGrid from "@/components/HoverGrid";
-import Navbar from "@/components/Navbar";
+import { useEffect, useState } from "react";
+
+
+const greetings = [
+    "Hi",
+    "Hola",
+    "नमस्ते",
+    "Bonjour",
+    "こんにちは",
+    "Ciao",
+];
 
 
 export default function HomePage() {
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIndex(prev => (prev + 1) % greetings.length);
+        }, 10000); // 10 seconds
+
+        return () => clearInterval(interval);
+    }, []);
     return (
         <main className="relative min-h-screen overflow-hidden">
-            <Navbar/>
+
             {/* Cursor-follow background */}
+
             <HoverGrid />
 
 
@@ -23,7 +42,18 @@ export default function HomePage() {
                     className="text-center max-w-3xl"
                 >
                     <h1 className="text-5xl font-extrabold">
-                        Hi, I&apos;m{" "}
+                        <AnimatePresence mode="wait">
+                            <motion.span
+                                key={greetings[index]}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -20 }}
+                                transition={{ duration: 0.6, ease: "easeOut" }}
+                                className="inline-block min-w-[4ch] text-purple-400"
+                            >
+                                {greetings[index]}
+                            </motion.span>
+                        </AnimatePresence>, I&apos;m{" "}
                         <span className="text-purple-500">Sumit Kumar</span>
                     </h1>
 
